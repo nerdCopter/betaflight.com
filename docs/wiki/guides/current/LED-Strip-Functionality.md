@@ -471,7 +471,7 @@ This mode fades the current LED color to the previous/next color in the HSB colo
 
 #### Thrust ring state
 
-This mode is allows you to use one or multiple LED rings (e.g. NeoPixel ring) for an afterburner effect. LEDs with this mode will light up with their assigned color in a repeating sequence. Assigning the color black to an LED with the ring mode will prevent the LED from lighting up.
+This mode allows you to use one or multiple LED rings (e.g. NeoPixel ring) for an afterburner effect. LEDs with this mode will light up with their assigned color in a repeating sequence. Assigning the color black to an LED with the ring mode will prevent the LED from lighting up.
 
 A better effect is achieved when LEDs configured for thrust ring have no other functions.
 

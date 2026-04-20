@@ -353,7 +353,7 @@ This mode binds the LED color to RSSI level.
 | RED        | 20%  |
 | DEEP_PINK  | 0%   |
 
-When RSSI is below 50% is reached, LEDs will blink slowly, and they will blink fast when under 20%.
+When RSSI falls below 50%, LEDs blink slowly, and they blink fast under 20%.
 
 #### Battery level
 

@@ -99,7 +99,7 @@ WS2812 LEDs on full brightness can consume quite a bit of current. It is recomme
 
 Since RC5 is also used for SoftSerial on the Naze it means that you cannot use SoftSerial and LED strips at the same time. Additionally, since RC5 is also used for Parallel PWM RC input on both the Naze, Chebuzz and STM32F3Discovery targets, LED strips can not be used at the same time at Parallel PWM.
 
-If you have LEDs that are intermittent, flicker or show the wrong colors then drop the VIN to less than 4.7v, e.g. by using an inline diode on the VIN to the LED strip. The problem occurs because of the difference in voltage between the data signal and the power signal. The WS2811 LED's require the data signal (Din) to be between 0.3 _ Vin (Max) and 0.7 _ VIN (Min) to register valid logic low/high signals. The LED pin on the CPU will always be between 0v to ~3.3v, so the Vin should be 4.7v (3.3v / 0.7 = 4.71v). Some LEDs are more tolerant of this than others.
+If you have LEDs that are intermittent, flicker or show the wrong colors then drop the VIN to less than 4.7v, e.g. by using an inline diode on the VIN to the LED strip. The problem occurs because of the difference in voltage between the data signal and the power signal. The WS2811 LEDs require the data signal (DIN) to be between 0.3 × VIN (max) and 0.7 × VIN (min) to register valid logic low/high signals. The LED pin on the CPU will always be between 0v to ~3.3v, so the VIN should be 4.7v (3.3v / 0.7 = 4.71v). Some LEDs are more tolerant of this than others.
 
 The datasheet can be found here: http://www.adafruit.com/datasheets/WS2812.pdf
 
@@ -528,7 +528,7 @@ The default color configuration is as follows:
 | 4     | YELLOW      | 60,0,255       |
 | 5     | LIME_GREEN  | 90,0,255       |
 | 6     | GREEN       | 120,0,255      |
-| 7     | MINT GREEN  | 150,0,255      |
+| 7     | MINT_GREEN  | 150,0,255      |
 | 8     | CYAN        | 180,0,255      |
 | 9     | LIGHT_BLUE  | 210,0,255      |
 | 10    | BLUE        | 240,0,255      |
@@ -675,7 +675,7 @@ Which translates into the following positions:
 ```
 
 LEDs 0,3,6 and 9 should be placed underneath the quad, facing downwards.
-LEDs 1-2, 4-5, 7-8 and 10-11 should be positioned so the face east/north/west/south, respectively.
+LEDs 1-2, 4-5, 7-8 and 10-11 should be positioned so they face east/north/west/south, respectively.
 LEDs 12-13 should be placed facing down, in the middle
 LEDs 14-15 should be placed facing up, in the middle
 LEDs 16-27 should be placed in a ring and positioned at the rear facing south.
@@ -718,7 +718,7 @@ Which translates into the following positions:
 ```
 
 LEDs 0,3,6 and 9 should be placed underneath the quad, facing downwards.
-LEDs 1-2, 4-5, 7-8 and 10-11 should be positioned so the face east/north/west/south, respectively.
+LEDs 1-2, 4-5, 7-8 and 10-11 should be positioned so they face east/north/west/south, respectively.
 LEDs 12-13 should be placed facing down, in the middle
 LEDs 14-15 should be placed facing up, in the middle
 

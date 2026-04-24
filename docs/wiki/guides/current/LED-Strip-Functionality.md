@@ -539,7 +539,7 @@ Hue is in the range 0-359 (degrees) where 0 is red, 60 is yellow, 120 is green, 
 S is color saturation, from 0-255, where 0 means fully saturated and 255 means no saturation (no colour). This is the reverse of 'normal' HSV formats where 100 means fully saturated.
 V means Brightness Value. It is a value from 0-255, where 0 always means black, and 255 means 100% bright. Zero brightness always returns black.
 
-See http://en.wikipedia.org/wiki/HSL_and_HSV, noting that Betaflight handles saturation differently.
+See https://en.wikipedia.org/wiki/HSL_and_HSV, noting that Betaflight handles saturation differently.
 
 The default color configuration is as follows:
 

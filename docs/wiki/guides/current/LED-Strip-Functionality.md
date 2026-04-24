@@ -101,7 +101,7 @@ Since RC5 is also used for SoftSerial on the Naze it means that you cannot use S
 
 If you have LEDs that are intermittent, flicker or show the wrong colors then drop the VIN to less than 4.7v, e.g. by using an inline diode on the VIN to the LED strip. The problem occurs because of the difference in voltage between the data signal and the power signal. The WS2811 LEDs require the data signal (DIN) to be between 0.3 × VIN (max) and 0.7 × VIN (min) to register valid logic low/high signals. The LED pin on the CPU will always be between 0v to ~3.3v, so the VIN should be 4.7v (3.3v / 0.7 = 4.71v). Some LEDs are more tolerant of this than others.
 
-The datasheet can be found here: http://www.adafruit.com/datasheets/WS2812.pdf
+The datasheet can be found here: https://www.adafruit.com/datasheets/WS2812.pdf
 
 ## Configuration
 
@@ -271,7 +271,7 @@ Base functions:
 - `A` - `A`rmed state.
 - `R` - `R`ing thrust state.
 - `G` - `G`PS state.
-- `S` - R`S`SSI level.
+- `S` - R`S`SI level.
 - `L` - Battery `L`evel.
 
 Overlays:
@@ -300,8 +300,14 @@ led 6 8,9::B:1
 
 ```text
 led 0 0,0::CW:2
-# sets the first LED on the strip to a Red `C`olor with a `W`arnings overlay; it will be configured to the top left of the Configurator LED array, and has no direction information.
+```
+
+This sets the first LED on the strip to a Red `C`olor with a `W`arnings overlay; it will be configured to the top left of the Configurator LED array, and has no direction information.
+
 To erase an led, and to mark the end of the chain, use `0,0::` as the second argument, like this:
+
+```text
+led 4 0,0::C:0
 ```
 
 It is best to erase all LEDs that you do not have connected. This can be done for LEDs 3-8 with
@@ -369,7 +375,7 @@ This mode binds the LED color to remaining battery capacity.
 | DEEP_PINK  | 0%       |
 
 When Warning or Critical voltage is reached, LEDs will blink slowly or fast.
-Note: this mode requires a current sensor. If you don't have the actual device you can set up a virtual current sensor (see [Battery](Battery)).
+Note: this mode requires a current sensor. If you don't have the actual device you can set up a virtual current sensor (see [Battery](/docs/wiki/guides/current/Battery)).
 
 #### Blink
 
@@ -394,6 +400,24 @@ Alternatively you can use CLI:
 Can also be used with [Larson Scanner](#larson-scanner-cylon-effect) or [Blink](#blink).
 
 :::
+
+#### VTX Frequency
+
+This overlay makes the LED color dependent on the current channel of the VTX, in case it is equipped with SmartAudio or IRC Tramp.
+The color is selected according to the following table:
+
+| Frequency range | Default color | Color index |
+| --------------- | ------------- | ----------- |
+| \<= 5672        | White         | 1           |
+| > 5672 \<= 5711 | Red           | 2           |
+| > 5711 \<= 5750 | Orange        | 3           |
+| > 5750 \<= 5789 | Yellow        | 4           |
+| > 5789 \<= 5829 | Green         | 6           |
+| > 5829 \<= 5867 | Blue          | 10          |
+| > 5867 \<= 5906 | Dark violet   | 11          |
+| > 5906          | Deep pink     | 13          |
+
+The default color can be changed by double-clicking the color and moving the Hue slider or by using the color command in the CLI.
 
 #### Flight Mode & Orientation
 
@@ -620,7 +644,7 @@ Cut the strip into sections as per diagrams below. When the strips are cut ensur
 
 Orientation is when viewed with the front of the aircraft facing away from you and viewed from above.
 
-### Example 12 LED config
+### Example 32 LED config
 
 The default configuration is as follows
 

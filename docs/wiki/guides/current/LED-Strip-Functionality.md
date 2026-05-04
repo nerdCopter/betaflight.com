@@ -167,7 +167,7 @@ It must be configured via the CLI:
 
 Type `get ledstrip_race_color` followed by enter to display the currently selected race color.
 
-Type `set ledstrip_race_color= abc` where abc is the name of the required color from the color table below.
+Type `set ledstrip_race_color = abc` where abc is the name of the required color from the color table below.
 Type `save` followed by enter to save.
 
 #### Setting LED color to the VTx Frequency
@@ -304,7 +304,7 @@ led 0 0,0::CW:2
 
 This sets the first LED on the strip to a Red `C`olor with a `W`arnings overlay; it will be configured to the top left of the Configurator LED array, and has no direction information.
 
-To erase an led, and to mark the end of the chain, use `0,0::` as the second argument, like this:
+To erase an led, and to mark the end of the chain, use the `led` command with `0,0::C:0` (position 0,0; no directions; color mode; color index 0 / BLACK), like this:
 
 ```text
 led 4 0,0::C:0
@@ -533,7 +533,7 @@ If no arguments are provided, `color` prints out the current
 color configuration, which can be copied for future reference.
 
 If two arguments are provided, they must be separated by a space.
-The first is a zero-based color identifier number between 0 and 14.
+The first is a zero-based color identifier number between 0 and 15.
 The second contains the three HSV values that define that color, separated by commas.
 Hue is in the range 0-359 (degrees) where 0 is red, 60 is yellow, 120 is green, 180 is cyan, returning to red at 359.
 S is color saturation, from 0-255, where 0 means fully saturated and 255 means no saturation (no colour). This is the reverse of 'normal' HSV formats where 100 means fully saturated.
